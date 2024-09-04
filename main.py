@@ -40,7 +40,7 @@ class EmbeddingResponse(BaseModel):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    models[model_name] = SentenceTransformer(model_name)
+    models[model_name] = SentenceTransformer(model_name, trust_remote_code=True)
     yield
 
 
